@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "566564985238",
+    "project_id": "composeauthentication",
+    "storage_bucket": "composeauthentication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:566564985238:android:04289ffafc438790a965b7",
+        "android_client_info": {
+          "package_name": "com.example.agriculture"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "566564985238-v7epljutu4fgtoiulc26lkngm0d671ee.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY6rambOqGVi2_Z1xnVMohS5kwm_QCprg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "566564985238-v7epljutu4fgtoiulc26lkngm0d671ee.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
