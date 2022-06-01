@@ -1,7 +1,10 @@
 package com.example.agriculture.presentation
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -15,11 +18,13 @@ import com.example.agriculture.ui.theme.AgricultureTheme
 fun MyApp(navController: NavController) {
 
 
-    Column(modifier = Modifier.background(color = Color.White)) {
+    Column(modifier = Modifier
+        .background(color = Color.White)) {
         Row(
             modifier = Modifier
                 .weight(1.1f)
-                .fillMaxWidth(),
+                .fillMaxWidth()
+
 
             ) {
             LoginBackgroundImage()

@@ -3,7 +3,9 @@ package com.example.agriculture.presentation
 import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
@@ -57,13 +59,15 @@ fun DetailsSection(
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(top = 24.dp),
+                    .padding(top = 24.dp)
+                    .verticalScroll(rememberScrollState()),
 
 
                 ) {
 
                 var email by remember { mutableStateOf("") }
                 var password by remember { mutableStateOf("") }
+                var _text by remember { mutableStateOf("Sign In") }
 
                 var showPassword by remember { mutableStateOf(false) }
 
@@ -134,7 +138,20 @@ fun DetailsSection(
 
                 Button(
                     onClick = {
-//                              navController.navigate(Screen.SignUp.route)
+                        // ...
+// Initialize Firebase Auth
+                        val auth: FirebaseAuth = Firebase.auth
+
+                        auth.signInWithEmailAndPassword(email,password).addOnCompleteListener {
+                            if(it.isSuccessful){
+                                navController.navigate(Screen.HomeScreen.route)
+
+                            }else{
+                                _text = "Sign in failure"
+
+                            }
+                        }
+
                     },
                     Modifier
                         .padding(top = 16.dp)
@@ -144,7 +161,7 @@ fun DetailsSection(
 
                 ) {
                     Text(
-                        "Sign in",
+                        text=_text,
                         fontWeight = FontWeight(500),
                         fontSize = 14.sp,
                         lineHeight = 20.sp
@@ -159,10 +176,10 @@ fun DetailsSection(
                         .align(Alignment.End),
                 )
 
-                Box(modifier = Modifier.fillMaxSize()){
+                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.BottomCenter){
                     Row(
                         Modifier
-                            .align(Alignment.BottomCenter)
+
                             .padding(bottom = 20.dp)
 
                     ) {
