@@ -75,7 +75,9 @@ fun DetailsSection(
                     shape = RoundedCornerShape(4.dp),
                     value = email,
                     onValueChange = { email = it },
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier.fillMaxWidth().clickable {
+                        _text = "Sign In"
+                    },
 
                     label = {
 
@@ -92,7 +94,9 @@ fun DetailsSection(
                 OutlinedTextField(
                     value = password, onValueChange = { password = it }, modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 12.dp),
+                        .padding(top = 12.dp).clickable {
+                            _text = "Sign In"
+                        },
                     label = {
                         Text("Password")
 
